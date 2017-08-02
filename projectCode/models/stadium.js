@@ -1,4 +1,4 @@
-var StadiumSchema = new Schema({
-  position: [Number],
-  title: String
-});
+// var StadiumSchema = new Schema({
+//   position: [Number],
+//   title: String
+// });
