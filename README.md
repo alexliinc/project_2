@@ -17,3 +17,6 @@ Day 1:<br/>
 -created [Trello](https://trello.com/b/RV3tB7l3/project-2) for everything<br/>
 -created wireframe using [Mockflow](https://wireframepro.mockflow.com/view/D4330f6f7f3a02a5856bdded065648a99)<br/>
 -trying to spin up basic server <br/>
+-well look at that I got a server up and showing me my home page <br/>
+-not bad guess I haven't hit the meat and potatoes of the project lols <br/>
+-waiting on approval <br/>
