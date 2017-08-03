@@ -1,3 +1,11 @@
+// This file allows us to seed our application with data
+// simply run: `node seed.js` from the root of this project folder.
+
+// position[latitude, longitude] 
+// LatLng(39.755872, -104.994172),
+
+var db = require('./models');
+
 var stadiums_list = [{
     position: [33.445278, -112.066667],
     title: "Arizona Diamondbacks"
@@ -119,3 +127,21 @@ var stadiums_list = [{
     title: "Washington Nationals"
   }
 ];
+
+// removing all movies
+db.Stadium.remove({}, function(err, movies) {
+  if (err) {
+    console.log('Error is: ', err);
+  } else {
+    console.log('Removed All Stadium');
+    // creating all new movies
+    db.Stadium.create(stadiums_list, function(err, stadiums) {
+      if (err) {
+        return console.log('err: ', err);
+      } else {
+        console.log("created", stadiums.length, "stadiums");
+        process.exit();
+      }
+    });
+  }
+});

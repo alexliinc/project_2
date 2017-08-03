@@ -20,3 +20,9 @@ Day 1:<br/>
 -well look at that I got a server up and showing me my home page <br/>
 -not bad guess I haven't hit the meat and potatoes of the project lols <br/>
 -waiting on approval <br/>
+
+Day 2:<br/>
+-got the autho working WOOT WOOT :) <br/>
+-got a list and can move items from on side to another <br/>
+-got my DB seeded <br/>
+-got my homepage to show alllllll stadiums :)))) <br/>

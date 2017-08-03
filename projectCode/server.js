@@ -19,6 +19,7 @@ mongoose.connect('mongodb://localhost/sporty');
 /************
  * Passport *
  ************/
+
 app.use(morgan('dev'));
 app.use(cookieParser());
 
@@ -30,9 +31,11 @@ app.use(passport.session());
 app.use(flash());
 
 require('./config/passport')(passport);
+
 /*************
  * BodyParser *
  *************/
+
 // parse incoming urlencoded form data
 // and populate the req.body object
 app.use(bodyParser.urlencoded({
