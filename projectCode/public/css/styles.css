@@ -1,0 +1,25 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#map {
+  width: 400px;
+  height: 400px;
+}
+
+h1 {
+  color: #222222;
+}
+
+
+/* Header Image Background*/
+
+.business-header {
+  height: 400px;
+  background: url('../images/bb.jpg') center center no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}

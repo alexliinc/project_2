@@ -1,3 +1,33 @@
 <% include ./partials/header.ejs %>
-Welcome HOME
+
+<!-- Image Background Page Header -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Welcome HOME</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <h2>Move Items From One List to Another</h2>
+      <select id="sbOne" multiple="multiple">
+          <option value="1">Alpha</option>
+          <option value="2">Beta</option>
+          <option value="3">Gamma</option>
+          <option value="4">Delta</option>
+          <option value="5">Epsilon</option>
+      </select>
+
+      <select id="sbTwo" multiple="multiple">
+          <option value="6">Zeta</option>
+          <option value="7">Eta</option>
+      </select>
+
+      <br />
+
+      <input type="button" id="left" value="<" />
+      <input type="button" id="right" value=">" />
+      
 <% include ./partials/footer.ejs %>
