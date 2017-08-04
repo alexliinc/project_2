@@ -39,6 +39,7 @@ router.route('/secret')
 // Getting all stadiums
 router.route('/api/stadiums')
   .get(mapsController.getAll)
+  .post(mapsController.favStadium)
 
 
 module.exports = router;

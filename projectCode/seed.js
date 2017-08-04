@@ -1,7 +1,7 @@
 // This file allows us to seed our application with data
 // simply run: `node seed.js` from the root of this project folder.
 
-// position[latitude, longitude] 
+// position[latitude, longitude]
 // LatLng(39.755872, -104.994172),
 
 var db = require('./models');
@@ -128,7 +128,7 @@ var stadiums_list = [{
   }
 ];
 
-// removing all movies
+// removing all Stadium
 db.Stadium.remove({}, function(err, movies) {
   if (err) {
     console.log('Error is: ', err);

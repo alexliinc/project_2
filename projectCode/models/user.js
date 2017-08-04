@@ -14,7 +14,11 @@ var User = mongoose.Schema({
   local: {
     email: String,
     password: String,
-  }
+  },
+  stadiums: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Stadium'
+  }]
 });
 
 User.methods.hash = function(password) {
@@ -25,4 +29,7 @@ User.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.local.password);
 };
 
+// var User = mongoose.model('User', UserSchema);
+// module.exports = User;
+// Short hand
 module.exports = mongoose.model('User', User);
