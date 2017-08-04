@@ -7,11 +7,7 @@ function getAll(request, response) {
   });
 }
 
-function favStadium(request, response) {
-  response.send('helo');
-}
 
 module.exports = {
   getAll: getAll,
-  favStadium: favStadium
 }

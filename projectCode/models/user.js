@@ -1,15 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
-// var UserSchema = new Schema({
-//   name: "String",
-//   password: "String",
-//   stadiums: [{
-//     type: Schema.Types.ObjectId,
-//     ref: 'Stadium'
-//   }];
-// });
-
 var User = mongoose.Schema({
   local: {
     email: String,

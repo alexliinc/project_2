@@ -32,14 +32,13 @@ router.route('/login')
 router.route('/logout')
   .get(usersController.getLogout)
 
-router.route('/secret')
-  .get(authenticatedUser, usersController.secret)
-
+router.route('/userProfile')
+  .get(authenticatedUser, usersController.userProfile)
+  .post(authenticatedUser, usersController.addStadium)
 
 // Getting all stadiums
 router.route('/api/stadiums')
   .get(mapsController.getAll)
-  .post(mapsController.favStadium)
 
 
 module.exports = router;

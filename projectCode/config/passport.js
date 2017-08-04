@@ -21,18 +21,18 @@ module.exports = function(passport) {
   }, function(req, email, password, callback) {
     console.log('function ran');
     // Find a user with given email
-    console.log("email  " + email);
-    console.log("password  " + password);
+    //console.log("email  " + email);
+    //console.log("password  " + password);
     User.findOne({
       'local.email': email
     }, function(err, user) {
       if (err) return callback(err);
-      console.log("no mongo error");
+      //console.log("no mongo error");
 
       // If user already exists
       if (user) {
-        console.log('user exists');
-        return callback(null, false, req.flash('signupMessage', "This email is already used"));
+        //console.log('user exists');
+        return callback(null, false, req.flash('signupMessage', "This email is already used."));
       } else {
         // User doesn't exist
         // Create new User
@@ -47,6 +47,7 @@ module.exports = function(passport) {
       }
     });
   }));
+
   passport.use('local-login', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -62,11 +63,12 @@ module.exports = function(passport) {
 
       // If no user is found
       if (!user) {
-        return callback(null, false, req.flash('loginMessage', 'No user found.'));
+        return callback(null, false, req.flash('loginMessage', 'Invalid Username or Password'));
       }
       // Wrong password
       if (!user.validPassword(password)) {
-        return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+        //return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password.'));
+        return callback(null, false, req.flash('loginMessage', 'Invalid Username or Password'));
       }
 
       return callback(null, user);

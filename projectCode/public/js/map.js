@@ -24,6 +24,23 @@ $(document).ready(function() {
   });
 
 
-
+  $('#addStadium').click(function() {
+    // posting stadium to user
+    $.ajax({
+      method: 'POST',
+      url: '/userProfile',
+      dataType: 'json',
+      success: handlePostSuccess,
+      error: handlePostError
+    });
+  });
 
 });
+
+function handlePostSuccess(data) {
+  console.log('YUP POSTED!!');
+}
+
+function handlePostError(data) {
+  console.log('POST ERROR');
+}

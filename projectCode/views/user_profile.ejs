@@ -1,6 +1,6 @@
 <% include ./partials/header.ejs %>
 
-<h2>This page can only be accessed by authenticated users</h2>
+<h1> Welcome <%= currentUser.local.email %> </h1>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVi8jjHdsBlfLNDwGWgGjAzu2rJlnMFTs"></script>
 <script src="js/map.js"></script>
@@ -8,6 +8,7 @@
   <div id="map"></div>
 
 
+  <input type="button" id="addStadium" value="addStadium" />
 
 
 

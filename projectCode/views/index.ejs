@@ -5,52 +5,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="tagline">Welcome HOME</h1>
+                    <h1 class="tagline">Welcome</h1>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Visited</h3>
-          <div id="Visited" class="list-group col-md-7">
-            <a class="list-group-item clearfix" onclick="alert('Action1 -> Details');">
-                  Action1
-                  <span class="pull-right">
-                      <span class="btn btn-xs btn-default" onclick="alert('Action1 -> Play'); event.stopPropagation();">
-                          <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
-                      </span>
-                  </span>
-              </a>
-            <a class="list-group-item clearfix" onclick="alert('Action2 -> Details');">
-                  Action2
-                  <span class="pull-right">
-                      <span class="btn btn-xs btn-default" onclick="alert('Action2 -> Play'); event.stopPropagation();">
-                          <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
-                      </span>
-                  </span>
-              </a>
-          </div>
-        </div>
-      </div>
-    </div>-->
-
-    <!-- Moving items between list -->
 
     <h2>Move Items From One List to Another</h2>
       <select id="allStadiums" multiple="multiple">
-          <option value="1">Alpha</option>
-          <option value="2">Beta</option>
-          <option value="3">Gamma</option>
-          <option value="4">Delta</option>
-          <option value="5">Epsilon</option>
       </select>
 
       <select id="visitedStadiums" multiple="multiple">
-          <option value="6">Zeta</option>
-          <option value="7">Eta</option>
+
       </select>
 
       <br />
@@ -58,18 +25,5 @@
       <input type="button" id="left" value="<" />
       <input type="button" id="right" value=">" />
 
-
-      <!-- LIST OF Stadiums -->
-      <section class="container">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <h2>Stadiums</h2>
-          </div>
-        </div>
-
-        <div id='stadiums'>
-
-        </div>
-      </section>
 
 <% include ./partials/footer.ejs %>

@@ -13,8 +13,8 @@ const session = require('express-session');
  * DATABASE *
  ************/
 
-mongoose.connect('mongodb://localhost/sporty');
-// var db = require('./models');
+// mongoose.connect('mongodb://localhost/sporty');
+const db = require('./models');
 
 /************
  * Passport *
@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 
 app.use(session({
-  secret: 'OMG'
+  secret: 'OMG_supersecret'
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -60,7 +60,6 @@ app.use(express.static(__dirname + '/public'));
 /*
  * HTML Endpoints
  */
-
 // app.get('/', function homepage(req, res) {
 //   res.sendFile(__dirname + '/views/index.html');
 // });

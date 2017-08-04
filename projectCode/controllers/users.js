@@ -1,4 +1,5 @@
 const passport = require('passport');
+const db = require('../models');
 
 // GET /signup
 function getSignup(request, response) {
@@ -11,7 +12,7 @@ function getSignup(request, response) {
 function postSignup(request, response, next) {
   // Save a new User
   let signupStrategy = passport.authenticate('local-signup', {
-    successRedirect: '/',
+    successRedirect: '/userProfile',
     failureRedirect: '/signup',
     failureFlash: true
   });
@@ -29,7 +30,7 @@ function getLogin(request, response) {
 // POST /login
 function postLogin(request, response, next) {
   var loginProperty = passport.authenticate('local-login', {
-    successRedirect: '/',
+    successRedirect: '/userProfile',
     failureRedirect: '/login',
     failureFlash: true
   });
@@ -44,9 +45,32 @@ function getLogout(request, response) {
 }
 
 // Restricted page
-function secret(request, response) {
-  response.render('secret.ejs');
+function userProfile(request, response) {
+  response.render('user_profile.ejs');
 }
+
+function addStadium(request, response) {
+  db.Stadium.create({
+    title: "POSTED"
+  }, function(err, stadium) {
+    console.log(stadium);
+    response.json(stadium);
+  });
+  // this code will add Staiumd to a user
+  // db.Stadium.findOne({
+  //   title: "Arizona Diamondbacks" //req.body.stadium
+  // }, function(err, stadium) {
+  //   db.User.stadiums.push(stadium);
+  //   newBook.save(function(err, book) {
+  //     if (err) {
+  //       return console.log("create error: " + err);
+  //     }
+  //     console.log("created ", book.title);
+  //     res.json(book);
+  //   });
+  // });
+}
+
 
 module.exports = {
   getLogin: getLogin,
@@ -54,5 +78,6 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret
+  userProfile: userProfile,
+  addStadium: addStadium
 }
