@@ -4,6 +4,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxmgYlXdTlZl_hsbkv5LUakdr9bug0nUw"></script>
 <script src="js/map.js"></script>
 <script src="js/favoritingStadiums.js"></script>
+<script src="js/markers.js"></script>
 
 <h1> Welcome <%= currentUser.local.email %> </h1>
 
@@ -22,9 +23,7 @@
   <input type="button" id="left" value="<" />
   <input type="button" id="right" value=">" />
 
-  <br>
-  <br>
-  <h2>User faved</h2>
+  <h2><%= currentUser.local.email %> Visted:</h2>
   <select id="userFavs" multiple="multiple">
   </select>
 

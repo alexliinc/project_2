@@ -84,21 +84,64 @@ function userVistedStadium(request, response) {
   //   response.json(user);
   // });
 
+  // db.User.findOne({
+  //   _id: request.user._id
+  // }, function(err, user) {
+  //   let stadiumNames = [];
+  //   for (var i = 0; i < user.stadiums.length; i++) {
+  //     db.Stadium.findOne({
+  //       _id: user.stadiums[i]
+  //     }, function(err, stadium) {
+  //       stadiumNames.push(stadium.title);
+  //       console.log("each stadium: " + stadiumNames);
+  //     });
+  //   }
+  //
+  //   console.log("All stadiums: " + stadiumNames);
+  //   response.json(stadiumNames);
+  // });
+
   db.User.findOne({
     _id: request.user._id
   }, function(err, user) {
-    let stadiumNames = [];
-    for (var i = 0; i < user.stadiums.length; i++) {
-      db.Stadium.findOne({
-        _id: user.stadiums[i]
-      }, function(err, stadium) {
-        stadiumNames.push(stadium.title);
-        console.log("each stadium: " + stadiumNames);
-      });
+    function getPromises() {
+
+      var promiseArray = [];
+
+      for (let i = 0; i < user.stadiums.length; i++) {
+        var gettingDataAtSomePoint = new Promise(
+          function(resolve, reject) {
+            //setTimeout(resolve("hi!"), 2000);
+            //--> this might something you'll want to do.
+            // db.Hi.find({}, function(err, found) {
+            //     resolve(found);
+            // });
+            db.Stadium.findOne({
+              _id: user.stadiums[i]
+            }, function(err, found) {
+              resolve(found);
+            });
+          }
+        );
+        promiseArray.push(gettingDataAtSomePoint);
+      }
+
+      return promiseArray;
     }
 
-    console.log("All stadiums: " + stadiumNames);
-    response.json(stadiumNames);
+
+    var promisesThatAreNotFinished = getPromises();
+
+    //--> not actual values yet!
+    console.log("these are not ready yet!");
+    console.log(promisesThatAreNotFinished);
+
+    Promise.all(promisesThatAreNotFinished).then(data => {
+      console.log("all of our promises are done! We can now send a json response");
+      console.log(data);
+
+      response.json(data);
+    });
   });
 }
 

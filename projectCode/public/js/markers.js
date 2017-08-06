@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  console.log("map.js connected");
+  console.log("maker.js connected");
   var mapOptions = {
     center: new google.maps.LatLng(39.755872, -104.994172),
     zoom: 12,

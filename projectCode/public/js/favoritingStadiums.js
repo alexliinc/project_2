@@ -57,15 +57,15 @@ function handleGetUserSuccess(data) {
   console.log(data);
   //console.log(data.stadiums);
   //console.log(data.stadiums[0]);
-  // $.each(data.stadiums, function(index, item) {
-  //   console.log("index: " + index + ' id: ' + item);
-  //   var stadiumHtml =
-  //     "        <!-- one stadium -->" +
-  //     "  <option>" + item + "</option>" +
-  //     "        <!-- end one stadium -->";
-  //   $('#userFavs').append(stadiumHtml);
-  // });
-  //renderVistedStadiums(data.stadiums[0]);
+  //console.log(data[0].title);
+  $.each(data, function(index, item) {
+    console.log("index: " + index + ' id: ' + item.title);
+    var stadiumHtml =
+      "        <!-- one stadium -->" +
+      "  <option>" + item.title + "</option>" +
+      "        <!-- end one stadium -->";
+    $('#userFavs').append(stadiumHtml);
+  });
 }
 
 function handleGetUserError(data) {
