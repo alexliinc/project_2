@@ -34,8 +34,11 @@ router.route('/logout')
 
 router.route('/userProfile')
   .get(authenticatedUser, usersController.userProfile)
-  .get(authenticatedUser, usersController.userFavorites)
   .post(authenticatedUser, usersController.addStadium)
+
+router.route('/userProfile/vistedStadium')
+  .get(authenticatedUser, usersController.userVistedStadium)
+  .post(authenticatedUser, usersController.vistedStadium)
 
 // Getting all stadiums
 router.route('/api/stadiums')

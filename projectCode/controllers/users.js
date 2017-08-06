@@ -50,21 +50,43 @@ function userProfile(request, response) {
 }
 
 function addStadium(request, response) {
-  console.log(request.user._id);
-  console.log(request.user.local.email);
   // this code will add stadiums to a user
+  //console.log(request.user._id);
+  //console.log(request.user.local.email);
+  //console.log(request.body);
+  console.log(request);
 
   db.User.findOne({
     _id: request.user._id
   }, function(err, user) {
-    user.stadiums.push("5984d5c2421b0b0ece6a158e");
+    //user.stadiums.push("5984d5c2421b0b0ece6a158e");
+    //user.save();
+    response.json(user);
+  });
+}
+
+function vistedStadium(request, response) {
+  console.log('userFavorites');
+  console.log(request.body);
+  db.User.findOne({
+    _id: request.user._id
+  }, function(err, user) {
+    user.stadiums.push(request.body.stadiumId);
     user.save();
     response.json(user);
   });
 }
 
-function userFavorites(request, response) {
-
+function userVistedStadium(request, response) {
+  console.log('userFavorites');
+  console.log(request.body);
+  db.User.findOne({
+    _id: request.user._id
+  }, function(err, user) {
+    user.stadiums.push(request.body.stadiumId);
+    user.save();
+    response.json(user);
+  });
 }
 
 
@@ -76,5 +98,6 @@ module.exports = {
   getLogout: getLogout,
   userProfile: userProfile,
   addStadium: addStadium,
-  userFavorites: userFavorites
+  vistedStadium: vistedStadium,
+  userVistedStadium: userVistedStadium
 }

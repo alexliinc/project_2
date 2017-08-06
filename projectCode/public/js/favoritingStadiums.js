@@ -1,15 +1,33 @@
 // Document has to be ready
 $(document).ready(function() {
+
+  var $allStadiumList = $('#userFavs');
+  var allStadiums = [];
   console.log('favoriting.js loaded!');
   // Moving list items
   function moveItems(origin, dest) {
     $(origin).find(':selected').appendTo(dest);
-  }
+  };
+
   $('#left').click(function() {
     moveItems('#visitedStadiums', '#allStadiums');
   });
+
   $('#right').on('click', function() {
     moveItems('#allStadiums', '#visitedStadiums');
+    console.log($('select option:selected').text());
+    console.log($('select option:selected').val());
+    $.ajax({
+      method: 'POST',
+      url: '/userProfile/vistedStadium',
+      dataType: 'json',
+      //dataType: 'json',
+      data: {
+        stadiumId: $('select option:selected').val()
+      },
+      success: handlePostSuccess,
+      error: handlePostError
+    });
   });
 
   // Getting all stadiums
@@ -21,26 +39,34 @@ $(document).ready(function() {
     error: handleGetAllError
   });
 
-  // Getting users fav stadiums
-  $.ajax({
-    method: 'GET',
-    url: '/api/stadiums',
-    dataType: 'json',
-    success: handleGetUserSuccess,
-    error: handleGetUserError
+
+  $('#addStadium').click(function() {
+    // posting stadium to user
+    $.ajax({
+      method: 'POST',
+      url: '/userProfile',
+      dataType: 'json',
+      success: handlePostSuccess,
+      error: handlePostError
+    });
   });
+
 });
 
+// User vistedStadium
+// ------------------------------------------------------------
 function handleGetUserSuccess(data) {
-  data.forEach(function(value) {
-    renderStadium(value);
-  });
+  console.log(data);
+  console.log(data.stadiums);
+  //renderStadium(data);
 }
 
 function handleGetUserError(data) {
-  console.log('GET ALL stadiums error!!');
+  console.log('GET User stadiums error!!');
 }
 
+// Getting all stadiums
+// ------------------------------------------------------------
 function handleGetAllSuccess(data) {
   data.forEach(function(value) {
     renderStadium(value);
@@ -51,11 +77,22 @@ function handleGetAllError(data) {
   console.log('GET ALL stadiums error!!');
 }
 
+// Posting a stadiums
+// ------------------------------------------------------------
+function handlePostSuccess(data) {
+  console.log('YUP POSTED!!');
+}
+
+function handlePostError(data) {
+  console.log('POST ERROR');
+}
+
 // this function takes a single stadium and renders it to the page
+// ------------------------------------------------------------
 function renderStadium(stadium) {
   var stadiumHtml =
     "        <!-- one stadium -->" +
-    "  <option>" + stadium.title + "</option>" +
+    "  <option value= '" + stadium._id + "'>" + stadium.title + "</option>" +
     "        <!-- end one stadium -->";
 
   // render to the page with jQuery
