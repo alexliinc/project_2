@@ -12,6 +12,10 @@ h1 {
   color: black;
 }
 
+footer {
+  POINTER-EVENTS: NONE;
+}
+
 
 /* Header Image Background*/
 

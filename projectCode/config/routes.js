@@ -7,7 +7,7 @@ const methodOverride = require('method-override');
 const passport = require("passport");
 const usersController = require('../controllers/users');
 const staticsController = require('../controllers/statics');
-const mapsController = require('../controllers/maps');
+const stadiumController = require('../controllers/stadiumController');
 
 function authenticatedUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
@@ -34,11 +34,12 @@ router.route('/logout')
 
 router.route('/userProfile')
   .get(authenticatedUser, usersController.userProfile)
+  .get(authenticatedUser, usersController.userFavorites)
   .post(authenticatedUser, usersController.addStadium)
 
 // Getting all stadiums
 router.route('/api/stadiums')
-  .get(mapsController.getAll)
+  .get(stadiumController.getAll)
 
 
 module.exports = router;

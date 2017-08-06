@@ -50,25 +50,21 @@ function userProfile(request, response) {
 }
 
 function addStadium(request, response) {
-  db.Stadium.create({
-    title: "POSTED"
-  }, function(err, stadium) {
-    console.log(stadium);
-    response.json(stadium);
+  console.log(request.user._id);
+  console.log(request.user.local.email);
+  // this code will add stadiums to a user
+
+  db.User.findOne({
+    _id: request.user._id
+  }, function(err, user) {
+    user.stadiums.push("5984d5c2421b0b0ece6a158e");
+    user.save();
+    response.json(user);
   });
-  // this code will add Staiumd to a user
-  // db.Stadium.findOne({
-  //   title: "Arizona Diamondbacks" //req.body.stadium
-  // }, function(err, stadium) {
-  //   db.User.stadiums.push(stadium);
-  //   newBook.save(function(err, book) {
-  //     if (err) {
-  //       return console.log("create error: " + err);
-  //     }
-  //     console.log("created ", book.title);
-  //     res.json(book);
-  //   });
-  // });
+}
+
+function userFavorites(request, response) {
+
 }
 
 
@@ -79,5 +75,6 @@ module.exports = {
   postSignup: postSignup,
   getLogout: getLogout,
   userProfile: userProfile,
-  addStadium: addStadium
+  addStadium: addStadium,
+  userFavorites: userFavorites
 }
