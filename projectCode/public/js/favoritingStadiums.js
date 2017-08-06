@@ -39,16 +39,13 @@ $(document).ready(function() {
     error: handleGetAllError
   });
 
-
-  $('#addStadium').click(function() {
-    // posting stadium to user
-    $.ajax({
-      method: 'POST',
-      url: '/userProfile',
-      dataType: 'json',
-      success: handlePostSuccess,
-      error: handlePostError
-    });
+  // Getting all visited stadiums
+  $.ajax({
+    method: 'GET',
+    url: '/userProfile/vistedStadium',
+    dataType: 'json',
+    success: handleGetUserSuccess,
+    error: handleGetUserError
   });
 
 });
@@ -56,9 +53,19 @@ $(document).ready(function() {
 // User vistedStadium
 // ------------------------------------------------------------
 function handleGetUserSuccess(data) {
+  console.log("getting all users success");
   console.log(data);
-  console.log(data.stadiums);
-  //renderStadium(data);
+  //console.log(data.stadiums);
+  //console.log(data.stadiums[0]);
+  // $.each(data.stadiums, function(index, item) {
+  //   console.log("index: " + index + ' id: ' + item);
+  //   var stadiumHtml =
+  //     "        <!-- one stadium -->" +
+  //     "  <option>" + item + "</option>" +
+  //     "        <!-- end one stadium -->";
+  //   $('#userFavs').append(stadiumHtml);
+  // });
+  //renderVistedStadiums(data.stadiums[0]);
 }
 
 function handleGetUserError(data) {

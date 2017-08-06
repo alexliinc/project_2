@@ -78,16 +78,30 @@ function vistedStadium(request, response) {
 }
 
 function userVistedStadium(request, response) {
-  console.log('userFavorites');
-  console.log(request.body);
+  // db.User.findOne({
+  //   _id: request.user._id
+  // }, function(err, user) {
+  //   response.json(user);
+  // });
+
   db.User.findOne({
     _id: request.user._id
   }, function(err, user) {
-    user.stadiums.push(request.body.stadiumId);
-    user.save();
-    response.json(user);
+    let stadiumNames = [];
+    for (var i = 0; i < user.stadiums.length; i++) {
+      db.Stadium.findOne({
+        _id: user.stadiums[i]
+      }, function(err, stadium) {
+        stadiumNames.push(stadium.title);
+        console.log("each stadium: " + stadiumNames);
+      });
+    }
+
+    console.log("All stadiums: " + stadiumNames);
+    response.json(stadiumNames);
   });
 }
+
 
 
 module.exports = {
