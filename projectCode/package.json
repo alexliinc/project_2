@@ -10,13 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/alexliinc/project_2.git"
   },
-  "keywords": [
-    "example",
-    "heroku"
-  ],
-  "engines": {
-   "node": "4.1.1"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
