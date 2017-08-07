@@ -1,6 +1,9 @@
 html, body {
   height: 100%;
   margin: 0;
+  background: url('../images/bg.jpg');
+  background-size: cover;
+  color: black;
 }
 
 #map {
@@ -8,22 +11,16 @@ html, body {
   height: 400px;
 }
 
-h1 {
+div.background {
   color: black;
+}
+
+div.transbox {
+  background-color: #e3f2fd;
+  border: 1px solid black;
+  opacity: 0.9;
 }
 
 footer {
   POINTER-EVENTS: NONE;
-}
-
-
-/* Header Image Background*/
-
-.business-header {
-  height: 400px;
-  background: url('../images/bb.jpg') center center no-repeat scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
 }
