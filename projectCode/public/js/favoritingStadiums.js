@@ -28,6 +28,7 @@ $(document).ready(function() {
       success: handlePostSuccess,
       error: handlePostError
     });
+    $("option:selected").removeAttr("selected");
   });
 
   // Getting all stadiums
@@ -53,17 +54,18 @@ $(document).ready(function() {
 // User vistedStadium
 // ------------------------------------------------------------
 function handleGetUserSuccess(data) {
-  console.log("getting all users success");
-  console.log(data);
+  //console.log("getting all users success");
+  //console.log(data);
   //console.log(data.stadiums);
   //console.log(data.stadiums[0]);
-  //console.log(data[0].title);
+  //console.log(data[0]);
   $.each(data, function(index, item) {
-    console.log("index: " + index + ' id: ' + item.title);
+    //console.log("index: " + index + ' id: ' + item.title);
     var stadiumHtml =
       "        <!-- one stadium -->" +
       "  <option>" + item.title + "</option>" +
       "        <!-- end one stadium -->";
+    $('#visitedStadiums').append(stadiumHtml);
     $('#userFavs').append(stadiumHtml);
   });
 }

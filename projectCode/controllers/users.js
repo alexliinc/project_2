@@ -133,12 +133,12 @@ function userVistedStadium(request, response) {
     var promisesThatAreNotFinished = getPromises();
 
     //--> not actual values yet!
-    console.log("these are not ready yet!");
-    console.log(promisesThatAreNotFinished);
+    //console.log("these are not ready yet!");
+    //console.log(promisesThatAreNotFinished);
 
     Promise.all(promisesThatAreNotFinished).then(data => {
-      console.log("all of our promises are done! We can now send a json response");
-      console.log(data);
+      //console.log("all of our promises are done! We can now send a json response");
+      //console.log(data);
 
       response.json(data);
     });
