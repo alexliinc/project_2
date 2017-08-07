@@ -26,3 +26,9 @@ Day 2:<br/>
 -got a list and can move items from on side to another <br/>
 -got my DB seeded <br/>
 -got my homepage to show alllllll stadiums :)))) <br/>
+
+Day 3:<br/>
+-Got adding stadiums showing up on map <br/>
+
+Day 4:<br/>
+-Pushed to heroku <br/>

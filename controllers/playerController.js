@@ -17,12 +17,13 @@ function showAllPlayers(request, response) {
 
 // POST /addNewPlayer
 function addNewPlayer(request, response) {
-  db.Album.create({
-    name: req.body.name,
-    age: req.body.age
-  }, function(err, album) {
-    console.log(album);
-    res.json(album);
+  //console.log(request.body);
+  db.Player.create({
+    name: request.body.name,
+    age: request.body.age
+  }, function(err, player) {
+    console.log(player);
+    response.json(player);
   });
 }
 
@@ -33,7 +34,14 @@ function updatePlayer(request, response) {
 
 // DELETE /removePlayer
 function removePlayer(request, response) {
-  response.send("yeah");
+  console.log(request.params)
+  var playerId = request.params.id;
+
+  db.Player.findOneAndRemove({
+    _id: playerId
+  }, function(err, deletePlayer) {
+    response.json(deletePlayer);
+  });
 }
 
 

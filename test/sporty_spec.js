@@ -1,8 +1,8 @@
 const expect = require("chai").expect;
 const request = require('request');
 
-const URL = 'http://localhost:3000/api/stadiums'
-// const URL =
+//const URL = 'http://localhost:3000/api/stadiums'
+const URL = 'https://safe-tundra-20034.herokuapp.com/'
 
 describe("Stadium", function() {
   var apiError, apiResponse, apiBody;

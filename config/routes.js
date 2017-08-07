@@ -50,6 +50,10 @@ router.route('/players')
   .get(authenticatedUser, playerController.renderPlayer)
   .post(authenticatedUser, playerController.addNewPlayer)
   .put(authenticatedUser, playerController.updatePlayer)
+
+
+//deleting your Player
+router.route('/players/:id')
   .delete(authenticatedUser, playerController.removePlayer)
 
 //Getting all your Player

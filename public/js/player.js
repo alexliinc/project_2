@@ -1,5 +1,6 @@
 $(document).ready(function() {
   console.log("player.js connected");
+
   $.ajax({
     method: 'GET',
     url: '/players/showAllPlayers',
@@ -7,60 +8,102 @@ $(document).ready(function() {
     success: handleSuccess,
     error: handleError
   });
+
+  $('form').on('submit', function(e) {
+    e.preventDefault();
+
+    let formData = $(this).serialize();
+    //console.log(formData);
+    //console.log("clicked");
+    $(this).trigger("reset");
+
+    $.ajax({
+      method: 'POST',
+      url: '/players',
+      dataType: 'json',
+      data: formData,
+      success: newPlayerSuccess,
+      error: newPlayerError
+    });
+  });
+
+  $('#players').on('click', '.deleteBtn', function(e) {
+    console.log($(this).attr('data-id'));
+    $.ajax({
+      method: 'DELETE',
+      url: '/players/' + $(this).attr('data-id'),
+      success: deleteSuccess,
+      error: deleteError
+    });
+  });
+
 });
 
+function deleteSuccess(data) {
+  console.log("deleted");
+  var removedOldPlayer = $('div').find("[data-player-id=" + data._id + "]");
+  console.log(removedOldPlayer);
+  removedOldPlayer.remove();
+}
+
+function deleteError(data) {
+  console.log('Delete player error!!');
+}
+
+function newPlayerSuccess(data) {
+  console.log(data);
+  renderPlayer(data);
+  //$(this).trigger("reset");
+}
+
+function newPlayerError(err) {
+  console.log('new Player error!!');
+  console.log(err)
+}
 
 function handleSuccess(data) {
   data.forEach(function(value) {
-    renderAlbum(value);
+    renderPlayer(value);
   });
 }
 
 function handleError(data) {
-  console.log('GET ALL album error!!');
+  console.log('GET ALL player error!!');
 }
 
-// this function takes a single album and renders it to the page
-function renderAlbum(album) {
-  //console.log('rendering album:', album);
+// this function takes a single player and renders it to the page
+function renderPlayer(player) {
+  //console.log('rendering player:', player);
 
-  var albumHtml =
-    "        <!-- one album -->" +
-    "        <div class='row album' data-album-id='" + album._id + "'>" +
+  var playerHtml =
+    "        <!-- one player -->" +
+    "        <div class='row player' data-player-id='" + player._id + "'>" +
     "          <div class='col-md-10 col-md-offset-1'>" +
     "            <div class='panel panel-default'>" +
-    "              <div class='panel-body'>" +
-    "              <!-- begin album internal row -->" +
-    "                <div class='row'>" +
-    "                  <div class='col-md-3 col-xs-12 thumbnail album-art'>" +
-    "                     <img src='" + "http://placehold.it/400x400'" + " alt='album image'>" +
-    "                  </div>" +
+    "              <div id='playerTarget' class='panel-body'>" +
+    "              <!-- begin player internal row -->" +
     "                  <div class='col-md-9 col-xs-12'>" +
     "                    <ul class='list-group'>" +
     "                      <li class='list-group-item'>" +
-    "                        <h4 class='inline-header'>Album Name:</h4>" +
-    "                        <span class='album-name'>" + album.name + "</span>" +
+    "                        <h4 class='inline-header'>Player Name:</h4>" +
+    "                        <span class='player-name'>" + player.name + "</span>" +
     "                      </li>" +
     "                      <li class='list-group-item'>" +
-    "                        <h4 class='inline-header'>Artist Name:</h4>" +
-    "                        <span class='artist-name'>" + album.age + "</span>" +
+    "                        <h4 class='inline-header'>Player age:</h4>" +
+    "                        <span class='artist-name'>" + player.age + "</span>" +
     "                      </li>" +
     "                    </ul>" +
     "                  </div>" +
+    "                <input data-id='" + player._id + "' id='playerDeleteButton' type='button' class='deleteBtn btn btn-danger pull-right' value='Delete Player'></input>" +
     "                </div>" +
-    "                <!-- end of album internal row -->" +
+    "                <!-- end of player internal row -->" +
 
     "              </div>" + // end of panel-body
-
-    "              <div class='panel-footer'>" +
-    "                <button class='btn btn-primary add-song'>Add Song</button>" +
-    "              </div>" +
-
     "            </div>" +
     "          </div>" +
-    "          <!-- end one album -->";
+    "          <!-- end one player -->";
 
   // render to the page with jQuery
-  $('#players').append(albumHtml);
+  $('#players').append(playerHtml);
 
 }
