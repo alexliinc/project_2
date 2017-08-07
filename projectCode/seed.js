@@ -129,12 +129,12 @@ var stadiums_list = [{
 ];
 
 // removing all Stadium
-db.Stadium.remove({}, function(err, movies) {
+db.Stadium.remove({}, function(err, stadium) {
   if (err) {
     console.log('Error is: ', err);
   } else {
     console.log('Removed All Stadium');
-    // creating all new movies
+    // creating all new stadiums
     db.Stadium.create(stadiums_list, function(err, stadiums) {
       if (err) {
         return console.log('err: ', err);

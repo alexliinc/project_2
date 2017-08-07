@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+var Player = require('./player.js');
 
 var User = mongoose.Schema({
   local: {
@@ -10,7 +11,7 @@ var User = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Stadium'
   }],
-  birthday: String
+  player: [Player.schema] //HAS TO BE LOWER CASE!!!!
 });
 
 User.methods.hash = function(password) {
