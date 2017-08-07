@@ -95,6 +95,7 @@ function renderPlayer(player) {
     "                    </ul>" +
     "                  </div>" +
     "                <input data-id='" + player._id + "' id='playerDeleteButton' type='button' class='deleteBtn btn btn-danger pull-right' value='Delete Player'></input>" +
+    "                <input data-id='" + player._id + "' id='playerDeleteButton' type='button' class='btn btn-default pull-right' value='Update Player'></input>" +
     "                </div>" +
     "                <!-- end of player internal row -->" +
 

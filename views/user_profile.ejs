@@ -6,25 +6,27 @@
 <script src="js/favoritingStadiums.js"></script>
 <script src="js/markers.js"></script>
 
-<h1> Welcome <%= currentUser.local.email %> </h1>
+  <section>
+    <h1> Welcome <%= currentUser.local.email %> </h1>
 
-  <h1>Mappy of BB</h1>
-  <div id="map"></div>
+    <h1>Mappy of BB</h1>
+    <div id="map"></div>
 
-  <h2>Move Items From One List to Another</h2>
-  <select id="allStadiums" multiple="multiple">
-  </select>
+    <h2>Move Items From One List to Another</h2>
+    <select id="allStadiums" multiple="multiple">
+    </select>
 
-  <select id="visitedStadiums" multiple="multiple">
-  </select>
+    <select id="visitedStadiums" multiple="multiple">
+    </select>
 
-  <br />
+    <br />
 
-  <input type="button" id="left" value="<" />
-  <input type="button" id="right" value=">" />
+    <input type="button" id="left" value="<" />
+    <input type="button" id="right" value=">" />
 
-  <h2><%= currentUser.local.email %> Visted:</h2>
-  <select id="userFavs" multiple="multiple">
-  </select>
+    <h2><%= currentUser.local.email %> Visted:</h2>
+    <select id="userFavs" multiple="multiple">
+    </select>
+  </section>
 
 <% include ./partials/footer.ejs %>
