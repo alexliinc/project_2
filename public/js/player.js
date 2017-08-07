@@ -37,6 +37,12 @@ $(document).ready(function() {
     });
   });
 
+  $('#players').on('click', '.btn-default', function(e) {
+    var currentPlayerId = $(this).parents('.album').data('data-player-id'); // "5665ff1678209c64e51b4e7b"
+    console.log('currentPlayerId: ', currentPlayerId);
+    $('#playerModal').data('data-player-id', currentPlayerId).modal();
+  });
+
 });
 
 function deleteSuccess(data) {
