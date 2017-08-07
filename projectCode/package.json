@@ -2,7 +2,7 @@
   "name": "project_2",
   "version": "1.0.0",
   "description": "Project Name: Sporty<br/> Author: Alex Li<br/> Developer @GA in DENVER<br/> <hr /> <h1>WELCOME!!!</h1><br/> [HOME PAGE](LINK)",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
