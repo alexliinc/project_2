@@ -17,7 +17,13 @@ function showAllPlayers(request, response) {
 
 // POST /addNewPlayer
 function addNewPlayer(request, response) {
-  response.send("yeah");
+  db.Album.create({
+    name: req.body.name,
+    age: req.body.age
+  }, function(err, album) {
+    console.log(album);
+    res.json(album);
+  });
 }
 
 // PUT /updatePlayer
