@@ -32,6 +32,7 @@
           <ul class="nav navbar-nav navbar-right">
             <!-- If user is signed in-->
             <% if (currentUser) {%>
+              <li><a href="/players"> <span class=""></span> Your Players </a></li>
               <li><a href="/userProfile"> <span class="glyphicon glyphicon-star-empty"></span> Mappy <span class="glyphicon glyphicon-star-empty"></span> </a></li>
               <li><a href="/logout"> <span class="glyphicon glyphicon-log-out"></span> Logout <%= currentUser.local.email %></a></li>
             <% } else { %>

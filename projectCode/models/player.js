@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 //models/user.js
 var PlayerSchema = new Schema({
   name: String,
+  age: Number
 });
 
 var Player = mongoose.model('Player', PlayerSchema);

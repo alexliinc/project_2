@@ -11,3 +11,4 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/sporty");
 
 module.exports.User = require("./user.js");
 module.exports.Stadium = require("./stadium.js");
+module.exports.Player = require("./player.js");

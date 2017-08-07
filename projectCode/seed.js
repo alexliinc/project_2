@@ -128,6 +128,8 @@ var stadiums_list = [{
   }
 ];
 
+
+
 // removing all Stadium
 db.Stadium.remove({}, function(err, stadium) {
   if (err) {

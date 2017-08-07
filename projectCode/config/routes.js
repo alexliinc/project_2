@@ -8,6 +8,7 @@ const passport = require("passport");
 const usersController = require('../controllers/users');
 const staticsController = require('../controllers/statics');
 const stadiumController = require('../controllers/stadiumController');
+const playerController = require('../controllers/playerController');
 
 function authenticatedUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
@@ -43,6 +44,17 @@ router.route('/userProfile/vistedStadium')
 // Getting all stadiums
 router.route('/api/stadiums')
   .get(stadiumController.getAll)
+
+//Getting all your Player
+router.route('/players')
+  .get(authenticatedUser, playerController.renderPlayer)
+  .post(authenticatedUser, playerController.addNewPlayer)
+  .put(authenticatedUser, playerController.updatePlayer)
+  .delete(authenticatedUser, playerController.removePlayer)
+
+//Getting all your Player
+router.route('/players/showAllPlayers')
+  .get(authenticatedUser, playerController.showAllPlayers)
 
 
 module.exports = router;
