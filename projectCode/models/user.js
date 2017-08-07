@@ -9,7 +9,8 @@ var User = mongoose.Schema({
   stadiums: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Stadium'
-  }]
+  }],
+  birthday: String
 });
 
 User.methods.hash = function(password) {
