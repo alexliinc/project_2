@@ -3,14 +3,14 @@ Author: Alex Li<br/>
 Developer @GA in DENVER<br/>
 <hr />
 <h1>WELCOME!!!</h1><br/>
-[HOME PAGE](#)
+[Link to the Project](https://safe-tundra-20034.herokuapp.com/)
 
 Project Idea:<br/>
 Using Google's Map API, Users will be able to see the Baseball Stadiums that they have visited<br/>
 TOOLS: HTML CSS JS EXPRESS MONGODB MONGOOSE AJAX JQUERY GOOGLE_MAP_API <br/>
 
 Day 0:<br/>
--Been researching APIs<br/>
+-Begin researching APIs<br/>
 
 Day 1:<br/>
 -created my repo <br/>
@@ -32,3 +32,12 @@ Day 3:<br/>
 
 Day 4:<br/>
 -Pushed to heroku <br/>
+-WHOA Promises BRO??? TOO WILD<br/>
+-MIND BLOWN<br/>
+-Promises WORK<br/>
+-![WOW](https://media.giphy.com/media/EldfH1VJdbrwY/giphy.gif)<br/>
+
+Day 5:<br/>
+-Presentation Day<br/>
+-Working on put<br/>
+-Working on styling<br/>

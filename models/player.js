@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 
-//models/user.js
+//models/player.js
 var PlayerSchema = new Schema({
   name: String,
   age: Number
