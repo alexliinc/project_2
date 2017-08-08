@@ -77,6 +77,22 @@ function vistedStadium(request, response) {
   });
 }
 
+function unvistedStadium(request, response) {
+  console.log('unvistedStadium');
+  console.log(request.body.stadiumId);
+  db.User.findOne({
+    _id: request.user._id
+  }, function(err, user) {
+    for (var i = 0; i < user.stadiums.length; i++)
+      if (user.stadiums[i].title === request.body.stadiumId) {
+        user.stadiums.splice(i, 1);
+        user.save();
+        break;
+      }
+    response.json(user);
+  });
+}
+
 function userVistedStadium(request, response) {
   // db.User.findOne({
   //   _id: request.user._id
@@ -156,5 +172,6 @@ module.exports = {
   userProfile: userProfile,
   addStadium: addStadium,
   vistedStadium: vistedStadium,
+  unvistedStadium: unvistedStadium,
   userVistedStadium: userVistedStadium
 }

@@ -7,13 +7,18 @@
 <script src="js/markers.js"></script>
 
   <section>
+    <div class="headOfWelcome">
     <h1> Welcome <%= currentUser.local.email %> </h1>
 
     <h1>Mappy of BB</h1>
+    </div>
     <div id="map"></div>
     <div id="map_canvas"></div>
 
+    <div class="moveFromAnother">
     <h2>Move Items From One List to Another</h2>
+    </div>
+
     <select id="allStadiums" multiple="multiple">
     </select>
 
@@ -22,12 +27,14 @@
 
     <br />
 
-    <input type="button" id="left" value="<" />
-    <input type="button" id="right" value=">" />
+    <input type="button" id="right" value="> Add to visited list" />
+    <input type="button" id="left" value="< Remove from visited list" />
 
+    <!--
     <h2><%= currentUser.local.email %> Visted:</h2>
     <select id="userFavs" multiple="multiple">
     </select>
+    -->
   </section>
 
 <% include ./partials/footer.ejs %>

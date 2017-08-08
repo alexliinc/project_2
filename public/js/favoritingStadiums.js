@@ -11,20 +11,20 @@ $(document).ready(function() {
 
   $('#left').click(function() {
     moveItems('#visitedStadiums', '#allStadiums');
-    // console.log($('select option:selected').text());
-    // console.log($('select option:selected').val());
-    // $.ajax({
-    //   method: 'POST',
-    //   url: '/userProfile/vistedStadium',
-    //   dataType: 'json',
-    //   //dataType: 'json',
-    //   data: {
-    //     stadiumId: $('select option:selected').val()
-    //   },
-    //   success: handlePostSuccess,
-    //   error: handlePostError
-    // });
-    // $("option:selected").removeAttr("selected");
+    console.log($('select option:selected').text());
+    console.log($('select option:selected').val());
+    $.ajax({
+      method: 'POST',
+      url: '/userProfile/unvistedStadium',
+      dataType: 'json',
+      //dataType: 'json',
+      data: {
+        stadiumId: $('select option:selected').val()
+      },
+      success: handlePostSuccess,
+      error: handlePostError
+    });
+    $("option:selected").removeAttr("selected");
   });
 
   $('#right').on('click', function() {
@@ -78,9 +78,10 @@ function handleGetUserSuccess(data) {
     var stadiumHtml =
       "        <!-- one stadium -->" +
       "  <option>" + item.title + "</option>" +
+      //    "  <option value= '" + item._id + "'>" + item.title + "</option>" +
       "        <!-- end one stadium -->";
     $('#visitedStadiums').append(stadiumHtml);
-    $('#userFavs').append(stadiumHtml);
+    //$('#userFavs').append(stadiumHtml);
   });
 }
 

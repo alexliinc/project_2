@@ -41,6 +41,9 @@ router.route('/userProfile/vistedStadium')
   .get(authenticatedUser, usersController.userVistedStadium)
   .post(authenticatedUser, usersController.vistedStadium)
 
+router.route('/userProfile/unvistedStadium')
+  .post(authenticatedUser, usersController.unvistedStadium)
+
 // Getting all stadiums
 router.route('/api/stadiums')
   .get(stadiumController.getAll)
