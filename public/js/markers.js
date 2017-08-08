@@ -64,7 +64,23 @@ function markerSuccess(data) {
     })
   });
   map.initialZoom = true;
-  map.fitBounds(markerBounds);
+
+  if (markerArray.length !== 0) {
+    map.fitBounds(markerBounds);
+    $("#map_canvas").remove();
+  } else {
+    $("#map").remove();
+    var latlng = new google.maps.LatLng(39.5, -98.35);
+    var myOptions = {
+      zoom: 3,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  }
+
+
 
 }
 

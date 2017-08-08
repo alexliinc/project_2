@@ -11,6 +11,20 @@ $(document).ready(function() {
 
   $('#left').click(function() {
     moveItems('#visitedStadiums', '#allStadiums');
+    // console.log($('select option:selected').text());
+    // console.log($('select option:selected').val());
+    // $.ajax({
+    //   method: 'POST',
+    //   url: '/userProfile/vistedStadium',
+    //   dataType: 'json',
+    //   //dataType: 'json',
+    //   data: {
+    //     stadiumId: $('select option:selected').val()
+    //   },
+    //   success: handlePostSuccess,
+    //   error: handlePostError
+    // });
+    // $("option:selected").removeAttr("selected");
   });
 
   $('#right').on('click', function() {
